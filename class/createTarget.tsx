@@ -43,15 +43,15 @@ export abstract class NewTarget {
                  ${this._Latency} minutos`)
   }
 
-  changeLogical = (): void => {                                                 // Método que altera...
+  changeLogical = (): void => {                                                 // Método que altera FullPage
     if( this._Logical == true ) {
       this._Logical = false
-      console.log(`O alvo ${this._TrgName} não ...!`)
+      console.log(`O alvo ${this._TrgName} cancelou a opção FullPage!`)
     }
 
     if( this._Logical == false ) {
       this._Logical = true
-      console.log(`O alvo ${this._TrgName} sim ...!`) 
+      console.log(`O alvo ${this._TrgName} selecionou  a opção FullPage!`) 
     }
   }
 }
