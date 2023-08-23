@@ -11,7 +11,7 @@
     "start": "sh start.sh"
   },
   "dependencies": {
-    "dns": "^0.1.2",
+    "dns": "^0.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "url": "^0.11.1"
