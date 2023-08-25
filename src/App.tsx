@@ -1,3 +1,5 @@
+import { NewHost } from '../class/onlineTarget'
+
 import { useEffect, useState } from 'react'
 import gooserLogo from '/gooser.svg'
 import './App.css'
@@ -6,6 +8,7 @@ const App = () => {
   const [isFeeding, setIsFeeding] = useState(false)
   const buttonHandler = () => {
     setIsFeeding(current => !current)
+    NewHost.onlineHost()
   }
 
   useEffect( () => {
