@@ -1,12 +1,13 @@
-// Aplicação de monitoramento de páginas públicas
+### Aplicação de monitoramento de páginas públicas
 
-// Criado com o comando
-npx create-react-app gooser-bundle --template typescript
+### Criado com o comando
+##  npx create-react-app gooser-bundle --template typescript
 
-// 
-npx eslint --init
+### Ativação de eslint
+## npx eslint --init
 
-### `npm start`
-### `npm test`
-### `npm run build`
-### `npm run eject`
+### Pacote básico de comandos do React
+## `npm start`
+## `npm test`
+## `npm run build`
+## `npm run eject`
