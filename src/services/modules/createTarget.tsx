@@ -11,11 +11,11 @@ export abstract class NewTarget {
   constructor(_Address: string, _TrgName: string, _Latency: number,
               _Logical: boolean,_ScrDual: [number, number]){                    // Método que cria alvos para monitoramento
 
-    this._Address = _Address
-    this._TrgName = _TrgName
-    this._ScrDual = _ScrDual
-    this._Latency = _Latency
-    this._Logical = _Logical
+    this._Address = _Address                                                    // Variável de endereçamento do alvo
+    this._TrgName = _TrgName                                                    // Variável de definição de nomeação para o alvo
+    this._ScrDual = _ScrDual                                                    // Variável do tipo tupla, usando dupla precisão para definir resolução de imagem capturada
+    this._Latency = _Latency                                                    // Variável de de definição de tempo de latência entre as verificação
+    this._Logical = _Logical                                                    // Variável lógica para ajuste e controle de fluxo de dados
   }
 
   showLogical = (): boolean => {                                                // Método que exibe status de Full Page
@@ -61,12 +61,12 @@ export abstract class NewTarget {
   }
 
   changeLogical = (): void => {                                                 // Método que altera FullPage
-    if( this._Logical == true ) {
+    if( this._Logical === true ) {
       this._Logical = false
       console.log(`O alvo ${this._TrgName} cancelou a opção FullPage!`)
     }
 
-    if( this._Logical == false ) {
+    if( this._Logical === false ) {
       this._Logical = true
       console.log(`O alvo ${this._TrgName} selecionou  a opção FullPage!`) 
     }
