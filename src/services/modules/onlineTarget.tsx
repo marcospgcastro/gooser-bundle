@@ -1,8 +1,5 @@
-import { parse as URL } from 'url'
-import { lookup as DNS } from 'dns'
-
-const checkURL = new URL()
-const checkDNS = new DNS()
+import * as URL from 'url'
+import * as DNS from 'dns'
 
 export abstract class NewHost {
   private readonly _HostName: string                                            
@@ -12,11 +9,11 @@ export abstract class NewHost {
   }
 
   onlineHost = (): void => {
-    checkDNS( checkURL( this._HostName, true ).host, (error) => {
+    DNS.lookup( String(URL.parse( this._HostName, true ).host), (error) => {
       if(error && error.code === 'ENOTFOUND') {
          console.error( ' Alvo não localizado - Gooser finalizado!')
          throw error;
       }
-    }) 
+    })
   }
 }

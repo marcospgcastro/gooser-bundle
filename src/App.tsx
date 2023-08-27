@@ -1,41 +1,26 @@
-import { NewHost } from '../class/onlineTarget'
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import { useEffect, useState } from 'react'
-import gooserLogo from '/gooser.svg'
-import './App.css'
-
-const App = () => {
-  const [isFeeding, setIsFeeding] = useState(false)
-  const buttonHandler = () => {
-    setIsFeeding(current => !current)
-    NewHost.onlineHost()
-  }
-
-  useEffect( () => {
-    console.log(isFeeding);
-}, [isFeeding]);
-
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://github.com/marcospgcastro/gooser-bundle" target="_blank">
-          <img src={gooserLogo} className="logo" alt="Gooser logo" />
-        </a>
-      </div>
-      <h1>Gooser</h1>
-      <div className="card">
-        <button onClick={buttonHandler}>
-          Feed the geese
-        </button>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
-        {isFeeding? "Feeding them...": "They're hungry!"}
+          Edit <code>src/App.tsx</code> and save to reload.
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Gooser logo to learn more
-      </p>
-    </>
-  )
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
-export default App
+export default App;
