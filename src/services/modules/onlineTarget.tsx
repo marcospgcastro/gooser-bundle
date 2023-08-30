@@ -1,7 +1,7 @@
 import * as URL from 'url'                                                      // Importação de módulo externo url
 import * as DNS from 'dns'                                                      // Importação de módulo externo dns
 
-export abstract class NewHost {                                                 // Criação de classe abstrata
+export class NewHost {                                                          // Criação de classe abstrata
   private readonly _HostName: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
 
   constructor(_HostName: string){                                               // Método construtor                                                   
