@@ -9,7 +9,7 @@ export abstract class NewTarget {
   private _Logical: boolean = true                                              // Full Page
 
   constructor(_Address: string, _TrgName: string, _Latency: number,
-              _Logical: boolean,_ScrDual: [number, number]){                    // Método que cria alvos para monitoramento
+              _Logical: boolean, _ScrDual: [number, number]){                   // Método que cria alvos para monitoramento
 
     this._Address = _Address                                                    // Variável de endereçamento do alvo
     this._TrgName = _TrgName                                                    // Variável de definição de nomeação para o alvo
