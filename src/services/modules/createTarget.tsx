@@ -63,7 +63,7 @@ export abstract class NewTarget {
                 `${this._Latency} minutos`)                                     // Sentença concatenada com sinal '+'
   }
 
-  changeLogical = (): void => {                                                 // Método que altera FullPage
+  selectLogical = (): void => {                                                 // Método que altera FullPage
     if( this._Logical === true ) {                                              // Condição de teste para mudança de valor lógico da variável
       this._Logical = false                                                     // Atribuição de valores direta
       console.log(`O alvo ${this._TrgName} cancelou a opção FullPage!`)         // Mensagem de cancelamento 
