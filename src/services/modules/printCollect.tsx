@@ -9,29 +9,26 @@ import { SetNewDate } from './getDateTime'                                      
     private _StrPath: string
     private _FrmData: string
     private _Logical: boolean = true
-    private _ScrDual: [number, number] = [1920,1080]                            // Tupla de resolução: largura x altura - Pixels.
+    private _ScrDual: [ number, number ] = [ 1920, 1080 ]                       // Tupla de resolução: largura x altura - Pixels.
     private _SnapName: string
     private _SiteName: string
     private _HostName: string
   
     constructor( _StrPath: string, _FrmData: string, _Logical: boolean, 
                  _SiteName: string, _SnapName: string, _HostName: string,
-                 _ScrDual: [number, number] ){                                  // Método que cria alvos para monitoramento
+                 _ScrDual: [ number, number ] ){                                // Método que cria alvos para monitoramento
 
       this._StrPath = _StrPath 
       this._FrmData = _FrmData 
       this._Logical = _Logical
-      this._ScrDual = [                                                         // Variável do tipo tupla, usada para definir resolução de imagem capturada
-      this._ScrDual[0],                                                         // => Largura em pixels
-      this._ScrDual[1]                                                          // => Altura em pixels
-    ]
+      this._ScrDual = [ this._ScrDual[0], this._ScrDual[1] ]                    // Variável do tipo tupla, usada para definir resolução de imagem capturada
       this._SnapName = _SnapName
       this._SiteName = _SiteName
       this._HostName = _HostName                                        
     } 
 
     ChangeFormData = (): void => {
-      this._FrmData = SetNewDate.GetNewDate()                             // Formatação de data FUNCTION                                   
+      this._FrmData = SetNewDate.GetNewDate()                                   // Formatação de data FUNCTION                                   
     }  
 
     ShowFormData = (): string => {
@@ -42,19 +39,19 @@ import { SetNewDate } from './getDateTime'                                      
       this._SiteName = String(URL.parse(this._HostName, true).host)             // Seleciona nome do Host por link fornecido FUNCTION
     }
 
-    ShowScrWidth = (): number => {                                            // Método que exibe resolução: largura - Pixels.
-      return this._ScrDual[0]                                                 // Retorna o valor individual
+    ShowScrWidth = (): number => {                                              // Método que exibe resolução: largura - Pixels.
+      return this._ScrDual[0]                                                   // Retorna o valor individual
     }
 
-    ShowScrHeight = (): number => {                                           // Método que exibe resolução: altura - Pixels.
-      return this._ScrDual[1]                                                 // Retorna o valor individual
+    ShowScrHeight = (): number => {                                             // Método que exibe resolução: altura - Pixels.
+      return this._ScrDual[1]                                                   // Retorna o valor individual
     }
 
-    ShowScrDual = (): [number, number] => {                                     // Método que exibe resolução: largura x altura - Pixels.
+    ShowScrDual = (): [ number, number ] => {                                   // Método que exibe resolução: largura x altura - Pixels.
       return [this._ScrDual[0],this._ScrDual[1]]                                // Retorna o valor da tupla
     }
 
-    ChangeScrDual = (_ScrDual: [number, number] ): void => {                    // Método que altera a resolução: largura x altura - Pixels.
+    ChangeScrDual = (_ScrDual: [ number, number ] ): void => {                  // Método que altera a resolução: largura x altura - Pixels.
       this._ScrDual = [_ScrDual[0], _ScrDual[1]]                                // Redundância na atribuição de valores
     }
 
@@ -96,7 +93,7 @@ import { SetNewDate } from './getDateTime'                                      
     const delay = (ms: number) => new Promise((resolve) =>
       setTimeout(resolve, ms))                                                  // Condição para uso de Timer
 
-      const browser = await PUP.launch({                                          // Função que simula abertura de navegador
+      const browser = await PUP.launch({                                        // Função que simula abertura de navegador
       headless: 'new',
       args: [ "--no-sandbox",
               "--disabled-setupid-sandbox" ],

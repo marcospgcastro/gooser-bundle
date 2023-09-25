@@ -4,11 +4,12 @@ import * as URL from 'url'                                                      
 import * as RUN from 'path'                                                     // Importação de módulo externo path
 
 export abstract class DirTree {                                                 // Criação de classe abstrata
-  private readonly _SavePath: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
-  private readonly _HostName: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
-  private _SiteName: string
-  private _PathName: string
+  private static readonly _SavePath: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
+  private static readonly _HostName: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
+  private static _SiteName: string
+  private static _PathName: string
 
+/*  
   constructor(_SavePath: string, _HostName: string,
               _SiteName: string, _PathName: string){                            // Método construtor  
 
@@ -18,8 +19,9 @@ export abstract class DirTree {                                                 
     this._PathName = '/'+RUN.basename(this._HostName,                           // default path
                          RUN.extname(this._HostName));
   }
+*/
 
-  createDir = (_SavePath: string): void => {  
+  static createDir = (_SavePath: string): void => {  
     if (!SYS.existsSync(this._SavePath)) {                                      // Verifica caminho de "imagem" de forma Síncrona                                       
       try {
         SYS.mkdirSync(this._SavePath)                                           // Caso o caminho não exista, este comando irá criar o diretório
@@ -32,8 +34,12 @@ export abstract class DirTree {                                                 
     }
   }
 
-  existPath = (_SavePath: string, _HostName: string,                            // Verifica se o local onde os dados serão armazenados "existe" - não modifica.
+  static existPath = (_SavePath: string, _HostName: string,                            // Verifica se o local onde os dados serão armazenados "existe" - não modifica.
                _SiteName: string, _PathName: string): boolean | undefined => {  
+
+    this._SiteName = String(URL.parse(this._HostName, true).host);              // default name - Seleciona nome do Host por link fornecido
+    this._PathName = '/'+RUN.basename(this._HostName,                           // default path
+                         RUN.extname(this._HostName));
 
     if (!SYS.existsSync(this._SavePath+this._SiteName+this._PathName)) {        // Se não houver arvore de diretórios, então execute...
       console.log(' Criando arvore de diretórios...')

@@ -2,15 +2,15 @@ import * as URL from 'url'                                                      
 import * as DNS from 'dns'                                                      // Importação de módulo externo dns
 
 export class NewHost {                                                          // Criação de classe abstrata
-  private readonly _HostName: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
-  private _ErroHost: boolean
+  private static readonly _HostName: string                                            // Tipagem de variável; o método "readonly" indica somente leitura
+  private static _ErroHost: boolean
 
+/*
   constructor(_HostName: string, _ErroHost: boolean){                                               // Método construtor                                                   
     this._HostName = _HostName                                                  // A variável declarada recebe o valor de _HostName
     this._ErroHost = _ErroHost
   }
   
-/*
   onlineHost = (): void => {                                                    // Definição de função que verifica se um endereço fornecido está online
     DNS.lookup( String(URL.parse( this._HostName, true ).host), (error) => {    // Verificação de endereço usando as funções url.parse() e dns.lookup() 
       if(error && error.code === 'ENOTFOUND') {                                 // Condição para verificação da existência de erros ao buscar o endereço
@@ -21,15 +21,15 @@ export class NewHost {                                                          
   }
 */
 
-  setError = (_ErroHost: boolean): void => {                                    // Atribuição de valor lógico ao erro
+  static setError = (_ErroHost: boolean): void => {                                    // Atribuição de valor lógico ao erro
     this._ErroHost = _ErroHost
   }
 
-  statError = (): boolean => {                                                  // Retorna status lógico do erro
+  static statError = (): boolean => {                                                  // Retorna status lógico do erro
     return this._ErroHost
   }
 
-  onlineHost = (_HostName: string): boolean => {                                // Definição de função que verifica se um endereço fornecido está online
+  static onlineHost = (_HostName: string): boolean => {                                // Definição de função que verifica se um endereço fornecido está online
     DNS.lookup( String(URL.parse(this._HostName,true).host), (error) => {
       if(error && error.code === 'ENOTFOUND') {                                 // Condição para verificação da existência de erros ao buscar o endereço
         console.error( ' \u26a0 Alvo não localizado! \u26a0')                   // Log de saída para caminho inexistente
@@ -41,5 +41,4 @@ export class NewHost {                                                          
     })
     return this.statError()                                                     // Devolve o valor lógico
   }
-
 }
