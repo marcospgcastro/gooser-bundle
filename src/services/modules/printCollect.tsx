@@ -1,8 +1,9 @@
 // Importação de módulos externos
 import * as PUP from 'puppeteer'                                                // Evoca biblioteca Puppeteer
-import * as DAT from 'node-datetime'                                            // Importação de módulo externo fs - File System
 import * as URL from 'url'                                                      // Importação de módulo externo url
 import * as RUN from 'path'                                                     // Importação de módulo externo path
+
+import { SetNewDate } from './getDateTime'                                      // Importação de módulo externo fs - File System
 
   export abstract class PrintScFile {
     private _StrPath: string
@@ -30,7 +31,7 @@ import * as RUN from 'path'                                                     
     } 
 
     ChangeFormData = (): void => {
-      this._FrmData = DAT.create().format(' Y-m-d H:M:S')                       // Formatação de data FUNCTION
+      this._FrmData = SetNewDate.GetNewDate()                             // Formatação de data FUNCTION                                   
     }  
 
     ShowFormData = (): string => {
@@ -92,8 +93,10 @@ import * as RUN from 'path'                                                     
     SnapShot = async ( _StrPath: string,_ScrDual: [number, number],
        _HostName: string, _Logical: boolean ): Promise<string> => {             // PrintFile --> SnapShot | SnapFile
     
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))     // Condição para uso de Timer
-    const browser = await PUP.launch({                                          // Função que simula abertura de navegador
+    const delay = (ms: number) => new Promise((resolve) =>
+      setTimeout(resolve, ms))                                                  // Condição para uso de Timer
+
+      const browser = await PUP.launch({                                          // Função que simula abertura de navegador
       headless: 'new',
       args: [ "--no-sandbox",
               "--disabled-setupid-sandbox" ],
