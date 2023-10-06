@@ -9,18 +9,6 @@ export abstract class DirTree {                                                 
   private static _SiteName: string
   private static _PathName: string
 
-/*  
-  constructor(_SavePath: string, _HostName: string,
-              _SiteName: string, _PathName: string){                            // Método construtor  
-
-    this._HostName = _HostName                       
-    this._SavePath = _SavePath                                                  // A variável declarada recebe o valor de _HostName
-    this._SiteName = String(URL.parse(this._HostName, true).host);              // default name - Seleciona nome do Host por link fornecido
-    this._PathName = '/'+RUN.basename(this._HostName,                           // default path
-                         RUN.extname(this._HostName));
-  }
-*/
-
   static createDir = (_SavePath: string): void => {  
     if (!SYS.existsSync(this._SavePath)) {                                      // Verifica caminho de "imagem" de forma Síncrona                                       
       try {
